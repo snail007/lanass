@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">LanASS</string>
+    <string name="title">LanASS - 内网穿透客户端</string>
+    <string name="IP">服务器</string>
+    <string name="port">端口</string>
+    <string name="method">传输方式：ws</string>
+    <string name="textview">传输密码</string>
+    <string name="textview1">客户端标示</string>
+    <string name="textview2">本机ss服务端口</string>
+    <string name="textview3">本机ss加密方式：</string>
+    <string name="textview4">本机ss密码</string>
+    <string name="cmdstart">启动</string>
+    <string name="cmdstop">停止</string>
+    <string name="textview6">状态：</string>
+    <string name="status">已停止</string>
+    <string name="textview10">Powered by snail007</string>
+    <string name="aes_256_cfb">aes-256-cfb</string>
+</resources>
