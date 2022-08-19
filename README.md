@@ -19,6 +19,7 @@
 # 开发环境
 - ide: AndroidStudio
 - jdk: 1.11
+- 基于snail007/goproxy官方安卓SDK开发， 下载项目之后，需要下载snail007/goproxy官方安卓SDK然后解压得到文件 snail007.goproxy.sdk.aar和snail007.goproxy.sdk-sources.jar放到项目目录app/libs下面即可，然后项目就可以正常编译使用。
 
 # 浏览器URL拉起协议
 - 明文方式，格式：`lanass://ass.app/?host=2.2.2.2&port=33001&key=0001&wspass=112&ssport=38221&sspass=123`
