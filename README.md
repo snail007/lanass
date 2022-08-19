@@ -31,3 +31,14 @@
 - wspass：连接proxy的内网穿透bridge的底层传输密码，这个密码是启动proxy的内网穿透bridge时设置的。
 - ssport：本机安卓启动一个ss服务，服务使用的安卓本机端口。
 - sspass：本机安卓启动一个ss服务，服务使用的密码，数字字母组成。
+
+# 助手
+拉起协议URL直接发给小白，在浏览器会打不开，项目提供了一个生成打开按钮的页面，地址如下：
+
+`https://snail007.host900.com/lanass/open.html#`
+
+使用方式，在地址后面加上拉起协议URL即可。
+
+比如：
+
+`https://snail007.host900.com/lanass/open.html#lanass://ass.app/base64/aG9zdD0yLjIuMi4yJnBvcnQ9MzMwMDEma2V5PTAwMDEmd3NwYXNzPTExMiZzc3BvcnQ9MzgyMjEmc3NwYXNzPTEyMw==`
