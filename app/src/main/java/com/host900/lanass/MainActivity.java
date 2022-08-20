@@ -34,7 +34,7 @@ import java.util.Map;
 import snail007.proxysdk.Proxysdk;
 
 public class MainActivity extends AppCompatActivity {
-
+    boolean isRunning;
     TextView server, port, key, wspwd, ssport, sspwd, status, poweredBy;
     Button cmdstart, cmdstop;
     AppCompatActivity app;
@@ -57,7 +57,12 @@ public class MainActivity extends AppCompatActivity {
         try {
             checkOpenWithURL();
         } catch (UnsupportedEncodingException e) {
-            Toast.makeText(MainActivity.this, "解析参数出错："+e.getMessage(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(MainActivity.this, "解析参数出错：" + e.getMessage(), Toast.LENGTH_SHORT).show();
+        }
+        if(isRunning){
+            startedUI();
+        }else{
+            stoppedUI();
         }
     }
 
@@ -268,6 +273,7 @@ public class MainActivity extends AppCompatActivity {
         ssport.setEnabled(false);
         sspwd.setEnabled(false);
         status.setText("运行中");
+        isRunning=true;
     }
 
     void stoppedUI() {
@@ -280,6 +286,7 @@ public class MainActivity extends AppCompatActivity {
         ssport.setEnabled(true);
         sspwd.setEnabled(true);
         status.setText("已停止");
+        isRunning=false;
     }
 
     void initUI() {
