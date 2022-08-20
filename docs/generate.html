@@ -26,7 +26,8 @@
         td.generate {
             text-align: center;
         }
-        .result{
+
+        .result {
             text-align: left;
             padding: 10px;
             margin: 10px;
@@ -71,7 +72,7 @@
     </table>
 </form>
 <div class="result">
-格式1：
+    格式1：
     <div id="result1"></div>
     <button class="btn" data-clipboard-action="copy" data-clipboard-target="#result1" id="copy_btn1">
         点击复制
@@ -79,7 +80,7 @@
 </div>
 
 <div class="result">
-格式2：
+    格式2：
     <div id="result2"></div>
     <button class="btn" data-clipboard-action="copy" data-clipboard-target="#result2" id="copy_btn2">
         点击复制
@@ -89,19 +90,20 @@
 <script>
     $(function () {
         $("form").submit(function () {
-            var str=$(this).serialize();
-            $("#result1").html("lanass://ass.app/base64/"+btoa(str));
-            $("#result2").html("lanass://ass.app/?"+str);
+            var openURL = "https://snail007.host900.com/lanass/generate.html#";
+            var str = $(this).serialize();
+            $("#result1").html(openURL + "lanass://ass.app/base64/" + btoa(str));
+            $("#result2").html(openURL + "lanass://ass.app/?" + str);
             return false;
         });
         var clipboard1 = new Clipboard('#copy_btn1');
         var clipboard2 = new Clipboard('#copy_btn2');
-        var callback= function(e) {
-            alert("复制成功",1500);
+        var callback = function (e) {
+            alert("复制成功", 1500);
             e.clearSelection();
         };
-        clipboard1.on('success',callback);
-        clipboard2.on('success',callback);
+        clipboard1.on('success', callback);
+        clipboard2.on('success', callback);
     });
 </script>
 </html>
