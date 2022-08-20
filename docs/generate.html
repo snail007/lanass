@@ -7,28 +7,22 @@
     <title>LanASS 呼起 URL 生成助手</title>
     <style>
         body {
-            font-size: 2em;
-            text-align: center;
+            font-size: 1.5em;
         }
 
-        td {
-            text-align: right;
+        div {
+            text-align: left;
         }
 
-        input {
+        input, #generate {
             font-size: 1em;
         }
 
         #generate {
-            font-size: 1em;
-        }
-
-        td.generate {
-            text-align: center;
+            margin-top: 10px;
         }
 
         .result {
-            text-align: left;
             padding: 10px;
             margin: 10px;
             word-break: break-all;
@@ -39,37 +33,29 @@
 </head>
 <body>
 <form>
-    <table align="center">
-        <tr>
-            <td>bridge 地址（域名或IP）</td>
-            <td><input type="text" name="host"/></td>
-        </tr>
-        <tr>
-            <td>bridge 端口</td>
-            <td><input type="text" name="port"/></td>
-        </tr>
-        <tr>
-            <td>bridge ws密码</td>
-            <td><input type="text" name="wspass"/></td>
-        </tr>
-        <tr>
-            <td>client 标识</td>
-            <td><input type="text" name="key"/></td>
-        </tr>
-        <tr>
-            <td>ss 服务使用端口（安卓机器）</td>
-            <td><input type="text" name="ssport"/></td>
-        </tr>
-        <tr>
-            <td>ss 服务密码（安卓机器）</td>
-            <td><input type="text" name="sspass"/></td>
-        </tr>
-        <tr>
-            <td class="generate" colspan="2">
-                <button type="submit" id="generate">生成</button>
-            </td>
-        </tr>
-    </table>
+    <div align="center">
+        <div>1、bridge 地址（域名或IP）</div>
+        <div><input type="text" name="host"/></div>
+
+        <div>2、bridge 端口</div>
+        <div><input type="text" name="port"/></div>
+
+        <div>3、bridge ws密码</div>
+        <div><input type="text" name="wspass"/></div>
+
+        <div>4、client 标识</div>
+        <div><input type="text" name="key"/></div>
+
+        <div>5、ss 服务使用端口（安卓机器）</div>
+        <div><input type="text" name="ssport"/></div>
+
+        <div>6、ss 服务密码（安卓机器）</div>
+        <div><input type="text" name="sspass"/></div>
+
+        <div class="generate">
+            <button type="submit" id="generate">7、生成</button>
+        </div>
+    </div>
 </form>
 <div class="result">
     格式1：
@@ -90,7 +76,7 @@
 <script>
     $(function () {
         $("form").submit(function () {
-            var openURL = "https://snail007.host900.com/lanass/generate.html#";
+            var openURL = "https://snail007.host900.com/lanass/open.html#";
             var str = $(this).serialize();
             $("#result1").html(openURL + "lanass://ass.app/base64/" + btoa(str));
             $("#result2").html(openURL + "lanass://ass.app/?" + str);
