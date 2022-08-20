@@ -3,29 +3,105 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
     <title>LanASS 呼起 URL 生成助手</title>
     <style>
-        body{font-size:2em;text-align:center;}
-        td{text-align: right;}
-        input{font-size:1em;}
-        #generate{font-size:1em;}
-        td.generate{text-align:center;}
+        body {
+            font-size: 2em;
+            text-align: center;
+        }
+
+        td {
+            text-align: right;
+        }
+
+        input {
+            font-size: 1em;
+        }
+
+        #generate {
+            font-size: 1em;
+        }
+
+        td.generate {
+            text-align: center;
+        }
+        .result{
+            text-align: left;
+            padding: 10px;
+            margin: 10px;
+            word-break: break-all;
+        }
     </style>
-    <script src="base64.js"></script>
+    <script src="jquery.js"></script>
+    <script src="clipboard.js"></script>
 </head>
 <body>
-<table align="center">
-    <tr><td>bridge 地址（域名或IP）</td><td><input type="text" id="host"/></td></tr>
-    <tr><td>bridge 端口</td><td><input type="text" id="port"/></td></tr>
-    <tr><td>bridge ws密码</td><td><input type="text" id="wspass"/></td></tr>
-    <tr><td>client 标识</td><td><input type="text" id="key"/></td></tr>
-    <tr><td>ss 服务使用端口（安卓机器）</td><td><input type="text" id="ssport"/></td></tr>
-    <tr><td>ss 服务密码（安卓机器）</td><td><input type="text" id="sspass"/></td></tr>
-    <tr><td class="generate" colspan="2"><button type="button" id="generate">生成</button></td></tr>
-</table>
+<form>
+    <table align="center">
+        <tr>
+            <td>bridge 地址（域名或IP）</td>
+            <td><input type="text" name="host"/></td>
+        </tr>
+        <tr>
+            <td>bridge 端口</td>
+            <td><input type="text" name="port"/></td>
+        </tr>
+        <tr>
+            <td>bridge ws密码</td>
+            <td><input type="text" name="wspass"/></td>
+        </tr>
+        <tr>
+            <td>client 标识</td>
+            <td><input type="text" name="key"/></td>
+        </tr>
+        <tr>
+            <td>ss 服务使用端口（安卓机器）</td>
+            <td><input type="text" name="ssport"/></td>
+        </tr>
+        <tr>
+            <td>ss 服务密码（安卓机器）</td>
+            <td><input type="text" name="sspass"/></td>
+        </tr>
+        <tr>
+            <td class="generate" colspan="2">
+                <button type="submit" id="generate">生成</button>
+            </td>
+        </tr>
+    </table>
+</form>
+<div class="result">
+格式1：
+    <div id="result1"></div>
+    <button class="btn" data-clipboard-action="copy" data-clipboard-target="#result1" id="copy_btn1">
+        点击复制
+    </button>
+</div>
+
+<div class="result">
+格式2：
+    <div id="result2"></div>
+    <button class="btn" data-clipboard-action="copy" data-clipboard-target="#result2" id="copy_btn2">
+        点击复制
+    </button>
+</div>
 </body>
 <script>
-
+    $(function () {
+        $("form").submit(function () {
+            var str=$(this).serialize();
+            $("#result1").html("lanass://ass.app/base64/"+btoa(str));
+            $("#result2").html("lanass://ass.app/?"+str);
+            return false;
+        });
+        var clipboard1 = new Clipboard('#copy_btn1');
+        var clipboard2 = new Clipboard('#copy_btn2');
+        var callback= function(e) {
+            alert("复制成功",1500);
+            e.clearSelection();
+        };
+        clipboard1.on('success',callback);
+        clipboard2.on('success',callback);
+    });
 </script>
 </html>
