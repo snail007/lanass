@@ -36,10 +36,4 @@
 # 助手
 拉起协议URL直接发给小白，在浏览器会打不开，项目提供了一个生成打开按钮的页面，地址如下：
 
-`https://snail007.host900.com/lanass/open.html#`
-
-使用方式，在地址后面加上拉起协议URL即可。
-
-比如：
-
-`https://snail007.host900.com/lanass/open.html#lanass://ass.app/base64/aG9zdD0yLjIuMi4yJnBvcnQ9MzMwMDEma2V5PTAwMDEmd3NwYXNzPTExMiZzc3BvcnQ9MzgyMjEmc3NwYXNzPTEyMw==`
+[打开助手](https://snail007.host900.com/lanass/generate.html)
